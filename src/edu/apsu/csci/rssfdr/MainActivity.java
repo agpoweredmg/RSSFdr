@@ -25,6 +25,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends Activity implements OnClickListener{
+	private static final int BLACK_ON_WHITE_BG = Color.WHITE;
+	private static final int BLACK_ON_WHITE_TXT = Color.BLACK;
+	
+	private static final int WHITE_ON_BLACK_BG = Color.BLACK;
+	private static final int WHITE_ON_BLACK_TXT = Color.WHITE;
+	
 	private ArrayList<RSS> rssList = new ArrayList<RSS>();
 	private ArrayList<RSS> current = new ArrayList<RSS>();
 	private ArrayAdapter<RSS> rssAdapter;
@@ -34,6 +40,9 @@ public class MainActivity extends Activity implements OnClickListener{
 	
 	private LinearLayout ll;
 	private TextView tv;
+	
+	private int toggleColorBG;
+	private int toggleColorTXT;
 	
 	private int initialRSSFeeds = 4;
 
@@ -45,14 +54,14 @@ public class MainActivity extends Activity implements OnClickListener{
 		ll = (LinearLayout) findViewById(R.id._layout);
 		ll.setBackgroundColor(Color.WHITE);
 
-		tv = (TextView) findViewById(R.id.adapter_tv);
+		//tv = (TextView) findViewById(R.id.adapter_tv);
 		//tv.setTextColor(Color.BLUE);
 		//tv.setTextColor(Color.BLUE);
 		
 		rssList = new ArrayList<RSS>();
 		current = new ArrayList<RSS>();
 		RSSList();
-		setUpWedgets();
+		initialSetUp();
 
 	}
 
@@ -112,7 +121,7 @@ public class MainActivity extends Activity implements OnClickListener{
 		return super.onOptionsItemSelected(item);
 	}
 
-	public void setUpWedgets() {
+	public void initialSetUp() {
 
 		new ArrayList<Articles>();
 
@@ -147,11 +156,19 @@ public class MainActivity extends Activity implements OnClickListener{
 	
 	public void toggleColors(boolean swap){
 		if(swap){
-			ll.setBackgroundColor(Color.BLACK);
-			tv.setTextColor(Color.WHITE);
+			toggleColorBG = BLACK_ON_WHITE_BG;
+			toggleColorTXT = BLACK_ON_WHITE_TXT;
 		}else{
-			ll.setBackgroundColor(Color.WHITE);
+			toggleColorBG = WHITE_ON_BLACK_BG;
+			toggleColorTXT = WHITE_ON_BLACK_TXT;
 		}
+		
+		for(int i = 0; i < rssList.getChildCount(); i++){ 
+			View listItem = rssList.getChildAt(i); 
+			View tv = listItem.findViewById(R.id.adapter_tv): 
+			listItem.setBackgroundColor(toggleColorBG): 
+			tv.setBackgroundColor(toggleColorTXT); 
+			}
 		
 	}
 	
