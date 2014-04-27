@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
+import android.util.TypedValue;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -18,6 +19,10 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 public class MainActivity extends Activity implements OnClickListener{
+	private final static int SELECT_SMALL = 1;
+	private final static int SELECT_MEDIUM = 2;
+	private final static int SELECT_LARGE = 3;
+	
 	private ArrayList<RSS> rssList = new ArrayList<RSS>();
 	private ArrayList<RSS> current = new ArrayList<RSS>();
 	private ArrayAdapter<RSS> rssAdapter;
@@ -30,6 +35,8 @@ public class MainActivity extends Activity implements OnClickListener{
 	private int toggleColorBG;
 	private int toggleColorTXT;
 	
+	private float textSize;
+		
 	private int initialRSSFeeds = 4;
 
 	@Override
@@ -95,8 +102,14 @@ public class MainActivity extends Activity implements OnClickListener{
 		case R.id.white_on_black:
 			toggleColors(false);
 			break;
-		case R.id.change_text_size:
-			changeTextSize();
+		case R.id.small_text:
+			changeTextSize(SELECT_SMALL);
+			break;
+		case R.id.medium_text:
+			changeTextSize(SELECT_MEDIUM);
+			break;
+		case R.id.large_text:
+			changeTextSize(SELECT_LARGE);
 			break;
 		default:
 			break;
@@ -162,8 +175,21 @@ public class MainActivity extends Activity implements OnClickListener{
 		
 	}
 	
-	public void changeTextSize(){
-	
+	public void changeTextSize(int SIZE){
+		if(SIZE == SELECT_SMALL){
+			textSize = getResources().getDimension(R.id.small_text);
+		} else if(SIZE == SELECT_MEDIUM){
+			textSize = getResources().getDimension(R.id.medium_text);
+		} else {
+			textSize = getResources().getDimension(R.id.large_text);
+		}
+		
+		for(int i = 0; i < rssView.getChildCount(); i++){ 
+			View listItem = rssView.getChildAt(i); 
+			TextView tv = (TextView) listItem.findViewById(R.id.adapter_tv); 
+			//listItem.setBackgroundColor(toggleColorBG); 
+			tv.setTextSize(TypedValue.COMPLEX_UNIT_SP, textSize);
+			}
 	}
 	
 	@Override

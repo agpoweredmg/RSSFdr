@@ -20,7 +20,19 @@
     		    </item>
     		    <item
     		        android:id="@+id/change_text_size"
-    		        android:title="@string/change_text_size"/>
+    		        android:title="@string/change_text_size">
+    		    	<menu>
+   		    	    	<item
+   		    	    	    android:id="@+id/small_text"
+   		    	    	    android:title="@string/small_text"/>
+   		    	    	<item
+   		    	    	    android:id="@+id/medium_text"
+   		    	    	    android:title="@string/medium_text"/>
+   		    	    	<item
+   		    	    	    android:id="@+id/large_text"
+   		    	    	    android:title="@string/large_text"/>
+   		    	    </menu>
+   		    	</item>
 	    	</menu>
     </item>
     

@@ -14,5 +14,8 @@
     <string name="white_on_black">White Text w/Black BG</string>
     
     <string name="change_text_size">Change Text Size</string>
+    <string name="small_text">Small</string>
+    <string name="medium_text">Medium</string>
+    <string name="large_text">Large</string>
 
 </resources>
