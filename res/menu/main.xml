@@ -1,0 +1,39 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item
+        android:id="@+id/action_settings"
+        android:orderInCategory="100"
+        android:showAsAction="never"
+        android:title="@string/action_settings">
+	        <menu>
+    		    <item
+		        	android:id="@+id/toggle_colors"
+		        	android:title="@string/toggle_colors">
+    		    	<menu>
+    		    	    <item
+    		    	    	android:id="@+id/black_on_white"
+    		    	    	android:title="@string/black_on_white"/>
+    		    	    <item
+    		    	        android:id="@+id/white_on_black"
+    		    	        android:title="@string/white_on_black"/>
+    		    	</menu>
+    		    </item>
+    		    <item
+    		        android:id="@+id/change_text_size"
+    		        android:title="@string/change_text_size"/>
+	    	</menu>
+    </item>
+    
+    <item
+        android:id="@+id/rss_actions"
+        android:title="@string/rss_actions">
+        <menu>
+	        <item
+	            android:id="@+id/add_rss_feed"
+	            android:title="@string/add_rss_feed"/>
+	        <item
+	            android:id="@+id/delete_rss_feed"
+	            android:title="@string/delete_rss_feed"/>
+        </menu>
+	</item>
+</menu>

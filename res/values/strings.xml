@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">RSSFdr</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    
+    <string name="rss_actions">RSS Feed Actions</string>
+    <string name="add_rss_feed">Add RSS Feed</string>
+    <string name="delete_rss_feed">Delete RSS Feed</string>
+    
+    <string name="toggle_colors">Toggle Colors</string>
+    <string name="black_on_white">Black Text w/White BG</string>
+    <string name="white_on_black">White Text w/Black BG</string>
+    
+    <string name="change_text_size">Change Text Size</string>
+
+</resources>
