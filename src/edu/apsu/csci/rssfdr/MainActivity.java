@@ -163,10 +163,10 @@ public class MainActivity extends Activity implements OnClickListener{
 			toggleColorTXT = WHITE_ON_BLACK_TXT;
 		}
 		
-		for(int i = 0; i < rssList.getChildCount(); i++){ 
-			View listItem = rssList.getChildAt(i); 
-			View tv = listItem.findViewById(R.id.adapter_tv): 
-			listItem.setBackgroundColor(toggleColorBG): 
+		for(int i = 0; i < rssView.getChildCount(); i++){ 
+			View listItem = rssView.getChildAt(i); 
+			View tv = listItem.findViewById(R.id.adapter_tv); 
+			listItem.setBackgroundColor(toggleColorBG); 
 			tv.setBackgroundColor(toggleColorTXT); 
 			}
 		
