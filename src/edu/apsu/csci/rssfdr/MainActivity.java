@@ -2,35 +2,22 @@ package edu.apsu.csci.rssfdr;
 
 import java.util.ArrayList;
 
-import android.R.color;
 import android.os.Bundle;
 import android.app.Activity;
-import android.app.AlertDialog;
-import android.app.Dialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
-import android.text.style.RelativeSizeSpan;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class MainActivity extends Activity implements OnClickListener{
-	private static final int BLACK_ON_WHITE_BG = Color.WHITE;
-	private static final int BLACK_ON_WHITE_TXT = Color.BLACK;
-	
-	private static final int WHITE_ON_BLACK_BG = Color.BLACK;
-	private static final int WHITE_ON_BLACK_TXT = Color.WHITE;
-	
 	private ArrayList<RSS> rssList = new ArrayList<RSS>();
 	private ArrayList<RSS> current = new ArrayList<RSS>();
 	private ArrayAdapter<RSS> rssAdapter;
@@ -39,7 +26,6 @@ public class MainActivity extends Activity implements OnClickListener{
 	protected static final String URL_FIELD = "url";
 	
 	private LinearLayout ll;
-	private TextView tv;
 	
 	private int toggleColorBG;
 	private int toggleColorTXT;
@@ -139,6 +125,7 @@ public class MainActivity extends Activity implements OnClickListener{
 				long id) {
 			RSS rss = (RSS) parent.getItemAtPosition(position);
 			String rssUrlString = rss.getUrlString();
+			
 			Intent intent = new Intent(getApplicationContext(), RSS.class);
 			intent.putExtra(URL_FIELD, rssUrlString);
 			startActivity(intent);
@@ -156,18 +143,21 @@ public class MainActivity extends Activity implements OnClickListener{
 	
 	public void toggleColors(boolean swap){
 		if(swap){
-			toggleColorBG = BLACK_ON_WHITE_BG;
-			toggleColorTXT = BLACK_ON_WHITE_TXT;
+			toggleColorBG = Color.WHITE;
+			toggleColorTXT = Color.BLACK;
+			ll.setBackgroundColor(Color.WHITE);
+			
 		}else{
-			toggleColorBG = WHITE_ON_BLACK_BG;
-			toggleColorTXT = WHITE_ON_BLACK_TXT;
+			toggleColorBG = Color.BLACK;
+			toggleColorTXT = Color.WHITE;
+			ll.setBackgroundColor(Color.BLACK);
 		}
 		
 		for(int i = 0; i < rssView.getChildCount(); i++){ 
 			View listItem = rssView.getChildAt(i); 
-			View tv = listItem.findViewById(R.id.adapter_tv); 
+			TextView tv = (TextView) listItem.findViewById(R.id.adapter_tv); 
 			listItem.setBackgroundColor(toggleColorBG); 
-			tv.setBackgroundColor(toggleColorTXT); 
+			tv.setTextColor(toggleColorTXT); 
 			}
 		
 	}

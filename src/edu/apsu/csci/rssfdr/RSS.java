@@ -96,6 +96,7 @@ public class RSS extends Activity {
 
 		}
 	}
+	
 
 	class RSSaSTask extends AsyncTask<URL, Void, List<Articles>> {
 
@@ -193,12 +194,12 @@ public class RSS extends Activity {
 
 			lv.setAdapter(adapter);
 
-			lv.setOnItemClickListener(new MyOIListerner());
+			lv.setOnItemClickListener(new FeedListener());
 		}
 
 	}
 
-	class MyOIListerner implements OnItemClickListener {
+	class FeedListener implements OnItemClickListener {
 
 		@Override
 		public void onItemClick(AdapterView<?> parent, View view, int position,
